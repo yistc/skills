@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Drizzle ORM Skill
 ## Latest Documentation
-The latest documentation for drizzle-orm can be found at https://github.com/drizzle-team/drizzle-orm-docs. Specifically, documentation mdx files are located at https://github.com/drizzle-team/drizzle-orm-docs/tree/main/src/content/docs
+Read https://orm.drizzle.team/llms.txt and see where to find the latest documentation and API references for drizzle-orm.
 
 # Our Best Practices
 ## DB Connection with Bun SQL via Unix Socket
