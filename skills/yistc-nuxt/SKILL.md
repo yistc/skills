@@ -10,8 +10,9 @@ You should fetch the latest documentation before making changes.
 - antfu's Nuxt skill https://github.com/antfu/skills/blob/main/skills/nuxt/SKILL.md
 - Nuxt's Official documentation https://nuxt.com/llms.txt
 
+## Backend
 ## Preferences
-## Cache and Route Rules
+### Cache and Route Rules
 For pages that won't change frequently, we set cache headers to improve performance and let CDN cache the content. For example, for the refund policy page, we can set the following headers:
 ```ts
 '/refund-policy': {
