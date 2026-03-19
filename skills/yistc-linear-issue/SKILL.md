@@ -1,6 +1,6 @@
 ---
 name: yistc-linear-issue
-description: Workflow for handling a Linear issue end-to-end: update Linear, create a git worktree from dev, implement the change, verify it, and open a GitHub PR linked to the issue.
+description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, create a git worktree from dev, implement the change, verify it, and open a GitHub PR linked to the issue.
 alwaysApply: false
 ---
 
