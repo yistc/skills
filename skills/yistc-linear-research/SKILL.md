@@ -1,6 +1,6 @@
 ---
 name: yistc-linear-research
-description: Workflow for researching a Linear issue, gathering all relevant context, synthesizing key insights, and posting a structured summary back to the issue as a comment.`
+description: Workflow for researching a Linear issue, gathering all relevant context, synthesizing key insights, and posting a structured summary back to the issue as a comment.
 ---
 
 # Workflow for researching a Linear issue
