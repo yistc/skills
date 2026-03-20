@@ -110,7 +110,7 @@ After the first line:
 After opening the PR, add a comment to the Linear issue containing:
   - a short summary of what was changed,
   - the validation performed
-- any remaining caveats
+  - any remaining caveat
 
 ## Failure or blocker handling
 If you are blocked, add a Linear comment explaining:
