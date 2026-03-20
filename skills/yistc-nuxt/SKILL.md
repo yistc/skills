@@ -1,7 +1,6 @@
 ---
 name: yistc-nuxt
 description: Instructions and examples for using the Nuxt framework.
-alwaysApply: true
 ---
 
 # Nuxt
