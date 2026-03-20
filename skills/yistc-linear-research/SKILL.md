@@ -93,9 +93,6 @@ The comment should:
 	•	help others quickly understand the issue
 	•	serve as a shared reference for future work
 
-### Step 6: Change Linear Status
-After previous steps, change the issue status to 'Ready for Implementation' if it is not already.
-
 ## Failure or ambiguity handling
 
 If information is incomplete:
