@@ -1,132 +1,114 @@
 ---
-name: yistc-linear-issue
-description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, create a git worktree from dev, implement the change, verify it, and open a GitHub PR linked to the issue.
+name: yistc-linear-research
+description: Workflow for researching a Linear issue, gathering all relevant context, synthesizing key insights, and posting a structured summary back to the issue as a comment.`
 ---
 
-# Workflow for working on a Linear issue
+# Workflow for researching a Linear issue
+## Linear MCP References
+- Get Issue - get_issue (MCP)(id: "L-115")
+- List Comments - list_comments (MCP)(issueId: "L-115")
+
 ## Scope
-Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
+Use this workflow when:
+	•	an issue requires investigation, clarification, or context gathering
+	•	the goal is to understand the problem deeply before implementation
+	•	you are asked to research, analyze, or summarize an issue
 
-## Description
-You will be assigned an issue with issue ID such as 'L-114'.
-You need to strictly follow the steps listed below. You may consider each step as a task.
-
+Issue format example: L-114
 ## Goal
-Complete the issue by:
-1. updating the Linear issue
-2. creating a dedicated git worktree and branch
-3. planning before implementation
-4. making the code changes
-5. verifying the result
-6. opening a GitHub PR linked to the Linear issue
+Produce a high-quality research summary by:
+	1.	collecting all relevant context
+	2.	analyzing and organizing the information
+	3.	extracting key insights and open questions
+	4.	posting a structured summary to the Linear issue
 
 ## Steps
-### Step 1: Read and understand the issue
-Before making changes:
-- Read the issue title, description, comments, and any linked context.
-- Identify the expected outcome, constraints, and acceptance criteria.
-- If the issue is ambiguous, state the ambiguity clearly in a Linear comment before proceeding.
-- Do not start coding until the scope is understood well enough to produce a concrete plan.
+### Step 1: Read and collect context
+Before doing any analysis:
+	•	Retrieve the issue:
+	•	title
+	•	description
+	•	status
+	•	Retrieve all comments
+	•	Identify any:
+	•	linked issues
+	•	referenced PRs
+	•	external context (docs, APIs, tools mentioned)
 
-### Step 2: Update the Linear issue
-When starting work:
-- Change the issue status to `In Progress`.
-- Add a comment that:
-  - you have started working on it,
-  - you are creating a branch/worktree,
-  - you will follow up with implementation progress and a PR link.
+Goal: Build a complete picture of the issue from all available sources
 
-### Step 3: Create a git worktree and branch
-Create a dedicated worktree under:
+### Step 2: Expand research (if needed)
 
-`~/Developer/worktrees/<repo>/<branch>`
+If the issue is not self-contained:
+	•	Search the codebase for:
+	•	related modules
+	•	relevant functions
+	•	prior implementations
+	•	Identify:
+	•	similar past issues
+	•	existing patterns or constraints
 
-Branch rules:
-- Base the branch on `dev`.
-- Branch name should follow this format:
+Do NOT modify code at this stage.
 
-`linear/<issue-id>-<short-slug>`
+### Step 3: Analyze and synthesize
 
-Example:
+Process the collected information:
+	•	Summarize the problem in your own words
+	•	Identify:
+	•	core objective
+	•	constraints
+	•	assumptions
+	•	Extract:
+	•	key technical points
+	•	relevant system behavior
+	•	Detect:
+	•	inconsistencies or unclear areas
+	•	missing information
 
-`linear/L-114-fix-login-timeout`
+### Step 4: Structure the research output
 
-Behavior:
-- If the branch does not exist, create it from `dev`.
-- If the branch already exists locally, reuse it.
-- Move into the worktree directory before making changes.
+Organize findings into a clear structure.
 
-### Step 4: Plan before implementation
-Before editing code:
-- Summarize the issue in your own words.
-- Write an implementation plan.
-- Identify the files or modules likely to be affected.
-- Consider edge cases, risks, and whether tests need to be added or updated.
+The output must include:
+- Problem Summary
+- Key Context
+- Findings
+- Constraints and Assumptions
+- Open Questions
+- Suggested Direction (if applicable)
 
-### Step 5: Implement the change
-- Make the smallest set of code changes necessary to solve the issue.
-- Follow the repository’s existing conventions and patterns.
-- Avoid unrelated refactors unless they are required to complete the issue safely.
-- If you discover the issue is larger than expected, leave a Linear comment describing the new scope before continuing too far.
+Rules:
+	•	Keep it concise but complete
+	•	Prefer bullet points over long paragraphs
+	•	Avoid speculation unless clearly labeled
 
-### Step 6: Verify the change
-Before opening a PR:
-- Review the diff for correctness and unnecessary changes.
-- Run the most relevant validation commands available in the project, such as:
-  - tests
-  - lint
-  - build (only if necessary)
-- Do NOT run build if the user explicitly specifies that build should not be executed.
-- Do NOT run typecheck by default.
-  - Only run typecheck if it is necessary to validate the correctness of your changes
-    (e.g. type-related changes, schema changes, or TypeScript errors are likely).
-- If full validation is not performed:
-  - explicitly state what was skipped,
-  - explain why it was skipped.
-- Confirm that the change actually addresses the issue’s acceptance criteria.
+### Step 5: Post summary to Linear
 
-### Step 7: Commit and open a PR
-Create a commit and open a PR with GitHub CLI.
+Add a comment to the issue containing:
+	•	the structured research summary
+	•	no raw logs or unprocessed data
+	•	clear formatting (markdown)
 
-PR requirements:
-- Push the branch to origin.
-- PR title should clearly describe the change.
-- The first line of the PR description must be:
+The comment should:
+	•	help others quickly understand the issue
+	•	serve as a shared reference for future work
 
-`closes <issue_id>`
+### Step 6: Change Linear Status
+After previous steps, change the issue status to 'Ready for Implementation' if it is not already.
 
-Example:
+## Failure or ambiguity handling
 
-`closes L-114`
+If information is incomplete:
+	•	explicitly list unknowns under Open Questions
+	•	do NOT invent missing details
 
-After the first line:
-- explain the problem,
-- describe the implementation,
-- summarize validation performed,
-- mention any known limitations or follow-up work.
+If conflicting information exists:
+	•	highlight the conflict
+	•	do not resolve it silently
 
-### Step 8: Update Linear with the PR
-After opening the PR, add a comment to the Linear issue containing:
-  - a short summary of what was changed,
-  - the validation performed
-  - any remaining caveat
-
-## Failure or blocker handling
-If you are blocked, add a Linear comment explaining:
-  - what blocked you
-  - what you tried
-  - what is needed to proceed
-
-  If you cannot complete the issue safely, do not pretend it is done.
-
-## Cleanup
-Only perform cleanup when explicitly requested by the user
-
-Cleanup may include:
-- removing the git worktree
-- deleting the local branch
-- posting a final Linear comment summarizing:
-  - the problem
-  - the plan
-  - the result
-  - the PR status or merge status
+## Behavioral rules
+	- Do NOT implement code in this workflow
+	- Do NOT open PRs
+	- Do NOT change issue status unless explicitly requested
+	- Focus only on understanding and communication
+	- If a research summary already exists: update or refine it instead of duplicating

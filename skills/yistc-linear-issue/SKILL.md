@@ -7,6 +7,10 @@ description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, cr
 ## Scope
 Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
 
+## Linear MCP References
+- Get Issue - get_issue (MCP)(id: "L-115")
+- List Comments - list_comments (MCP)(issueId: "L-115")
+
 ## Description
 You will be assigned an issue with issue ID such as 'L-114'.
 You need to strictly follow the steps listed below. You may consider each step as a task.
