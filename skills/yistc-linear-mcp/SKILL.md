@@ -1,6 +1,6 @@
 ---
 name: yistc-linear-mcp
-description: References on how to use Linear MCP. Use this skill whenever you need to make MCP calls to Linear.
+description: Mandatory preflight for any Linear MCP tool call. Load this skill before using any Linear MCP tool.
 ---
 
 # Linear MCP References
