@@ -10,6 +10,9 @@ Use this workflow only when you are explicitly assigned a Linear issue, with an 
 ## Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
 - List Comments - list_comments (MCP)(issueId: "L-115")
+- Create Comment: save_comment (MCP)(issueId: "L-115", body: "<comment body>")
+- Update commentt: save_comment (MCP)(id: "<comment_id>", issueId: "L-115", body: "<comment body>")
+- Delete comment: delete_comment (MCP)(id: "<comment_id>")
 
 ## Description
 You will be assigned an issue with issue ID such as 'L-114'.
@@ -95,6 +98,7 @@ Create a commit and open a PR with GitHub CLI.
 PR requirements:
 - Push the branch to origin.
 - PR title should clearly describe the change.
+- PR should merge to `dev` branch.
 - The first line of the PR description must be:
 
 `closes <issue_id>`
@@ -115,13 +119,18 @@ After opening the PR, add a comment to the Linear issue containing:
   - the validation performed
   - any remaining caveat
 
+Comment-only. Do not modify Linear Issue Status.
+
 ## Failure or blocker handling
 If you are blocked, add a Linear comment explaining:
   - what blocked you
   - what you tried
   - what is needed to proceed
 
-  If you cannot complete the issue safely, do not pretend it is done.
+  If you cannot complete the issue safely, do not pretend it is done
+
+## Behavioral rules
+	- Do NOT change issue status unless explicitly requested by the user.
 
 ## Cleanup
 Only perform cleanup when explicitly requested by the user

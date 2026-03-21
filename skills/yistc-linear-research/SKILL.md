@@ -7,6 +7,9 @@ description: Workflow for researching a Linear issue, gathering all relevant con
 ## Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
 - List Comments - list_comments (MCP)(issueId: "L-115")
+- Create Comment: save_comment (MCP)(issueId: "L-115", body: "<comment body>")
+- Update commentt: save_comment (MCP)(id: "<comment_id>", issueId: "L-115", body: "<comment body>")
+- Delete comment: delete_comment (MCP)(id: "<comment_id>")
 
 ## Scope
 Use this workflow when:
