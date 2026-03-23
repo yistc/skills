@@ -10,6 +10,7 @@ Use this workflow only when you are explicitly assigned a Linear issue, with an 
 ## Behavioral rules
 - Do NOT change issue status unless explicitly required by a workflow step or requested by the user.
 - Do NOT run local test, lint, build, or typecheck unless explicitly requested by the user.
+- Always keep Linear updated with meaningful progress, especially after fixing CI failures or when the PR becomes ready to merge.
 
 ## Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
@@ -121,10 +122,18 @@ When asked to check PR status or validation results:
 
 Do not proactively wait for CI, poll for results, or repeatedly re-check the PR unless the user explicitly asks.
 
-### Step 9: Update Linear with the PR
-After opening the PR, add a comment to the Linear issue containing:
-  - a short summary of what was changed,
-  - that full validation is handled by GitHub Actions / CI,
+- After making fixes and pushing updates, add a comment to the Linear issue summarizing:
+  - what failed,
+  - what was fixed,
+  - that CI has been re-run and is expected to validate the changes.
+
+### Step 9: Update Linear with PR and follow-up status
+After opening a PR OR after any significant PR update (e.g. CI failure fix, CI passing, PR ready):
+
+Add a comment to the Linear issue containing:
+  - a short summary of what changed,
+  - current PR status (e.g. CI failed, CI passed, ready to merge),
+  - whether validation is handled or completed by GitHub Actions / CI,
   - any remaining caveats.
 
 Comment-only. Do not modify Linear Issue Status.
