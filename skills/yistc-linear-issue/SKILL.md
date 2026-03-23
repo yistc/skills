@@ -8,8 +8,8 @@ description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, cr
 Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
 
 ## Behavioral rules
-	- Do NOT change issue status unless explicitly requested by the user.
-	- Do NOT run local test, lint, build, or typecheck unless explicitly requested by the user.
+- Do NOT change issue status unless explicitly required by a workflow step or requested by the user.
+- Do NOT run local test, lint, build, or typecheck unless explicitly requested by the user.
 
 ## Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
@@ -85,7 +85,6 @@ Before opening a PR:
 - Review the diff for correctness and unnecessary changes.
 - Do NOT run test, lint, build, or typecheck
 - Prefer to rely on the repository’s GitHub Actions / CI to perform full validation after the PR is opened.
--
 
 ### Step 7: Commit and open a PR
 Create a commit and open a PR with GitHub CLI.
@@ -125,7 +124,7 @@ Do not proactively wait for CI, poll for results, or repeatedly re-check the PR 
 ### Step 9: Update Linear with the PR
 After opening the PR, add a comment to the Linear issue containing:
   - a short summary of what was changed,
-  - the validation
+  - that full validation is handled by GitHub Actions / CI,
   - any remaining caveats.
 
 Comment-only. Do not modify Linear Issue Status.
@@ -140,6 +139,10 @@ If you are blocked, add a Linear comment explaining:
 
 ## Cleanup
 Only perform cleanup when explicitly requested by the user
+
+Before performing cleanup:
+- Do NOT assume the PR is merged or CI has passed.
+- If PR status or CI results are relevant, only use information that has been explicitly checked or provided by the user.
 
 Cleanup may include:
 - removing the git worktree
