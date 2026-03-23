@@ -7,6 +7,10 @@ description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, cr
 ## Scope
 Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
 
+## Behavioral rules
+	- Do NOT change issue status unless explicitly requested by the user.
+	- Do NOT run local test, lint, build, or typecheck unless explicitly requested by the user.
+
 ## Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
 - List Comments - list_comments (MCP)(issueId: "L-115")
@@ -24,8 +28,8 @@ Complete the issue by:
 2. creating a dedicated git worktree and branch
 3. planning before implementation
 4. making the code changes
-5. verifying the result
-6. opening a GitHub PR linked to the Linear issue
+5. opening a GitHub PR linked to the Linear issue
+6. relying on GitHub Actions for default validation unless the user explicitly requests local validation
 
 ## Steps
 ### Step 1: Read and understand the issue
@@ -76,21 +80,12 @@ Before editing code:
 - Avoid unrelated refactors unless they are required to complete the issue safely.
 - If you discover the issue is larger than expected, leave a Linear comment describing the new scope before continuing too far.
 
-### Step 6: Verify the change
+### Step 6: Prepare for PR
 Before opening a PR:
 - Review the diff for correctness and unnecessary changes.
-- Run the most relevant validation commands available in the project, such as:
-  - tests
-  - lint
-  - build (only if necessary)
-- Do NOT run build if the user explicitly specifies that build should not be executed.
-- Do NOT run typecheck by default.
-  - Only run typecheck if it is necessary to validate the correctness of your changes
-    (e.g. type-related changes, schema changes, or TypeScript errors are likely).
-- If full validation is not performed:
-  - explicitly state what was skipped,
-  - explain why it was skipped.
-- Confirm that the change actually addresses the issue’s acceptance criteria.
+- Do NOT run test, lint, build, or typecheck
+- Prefer to rely on the repository’s GitHub Actions / CI to perform full validation after the PR is opened.
+-
 
 ### Step 7: Commit and open a PR
 Create a commit and open a PR with GitHub CLI.
@@ -111,13 +106,27 @@ After the first line:
 - explain the problem,
 - describe the implementation,
 - summarize validation performed,
+- explicitly note that full validation is expected to run in GitHub Actions / CI,
 - mention any known limitations or follow-up work.
 
-### Step 8: Update Linear with the PR
+## Step 8: Check GitHub Actions results only when explicitly requested
+Only perform this step when explicitly notified by the user.
+
+When asked to check PR status or validation results:
+	•	inspect the GitHub PR checks / GitHub Actions results,
+	•	summarize which checks passed, failed, or are still running,
+	•	if a check failed, identify the relevant error clearly,
+	•	make only the changes necessary to address the failure,
+	•	update the branch and push additional commits,
+	•	summarize what was fixed.
+
+Do not proactively wait for CI, poll for results, or repeatedly re-check the PR unless the user explicitly asks.
+
+### Step 9: Update Linear with the PR
 After opening the PR, add a comment to the Linear issue containing:
   - a short summary of what was changed,
-  - the validation performed
-  - any remaining caveat
+  - the validation
+  - any remaining caveats.
 
 Comment-only. Do not modify Linear Issue Status.
 
@@ -128,9 +137,6 @@ If you are blocked, add a Linear comment explaining:
   - what is needed to proceed
 
   If you cannot complete the issue safely, do not pretend it is done
-
-## Behavioral rules
-	- Do NOT change issue status unless explicitly requested by the user.
 
 ## Cleanup
 Only perform cleanup when explicitly requested by the user
