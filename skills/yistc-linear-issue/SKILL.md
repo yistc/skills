@@ -7,23 +7,25 @@ description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, cr
 ## Scope
 Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
 
-## Behavioral rules
+## Guidelines
+
+### Behavioral rules
 - Do NOT change issue status unless explicitly required by a workflow step or requested by the user.
 - Do NOT run local test, lint, build, or typecheck unless explicitly requested by the user.
 - Always keep Linear updated with meaningful progress, especially after fixing CI failures or when the PR becomes ready to merge.
 
-## Linear MCP References
+### Linear MCP References
 - Get Issue - get_issue (MCP)(id: "L-115")
 - List Comments - list_comments (MCP)(issueId: "L-115")
 - Create Comment: save_comment (MCP)(issueId: "L-115", body: "<comment body>")
 - Update commentt: save_comment (MCP)(id: "<comment_id>", issueId: "L-115", body: "<comment body>")
 - Delete comment: delete_comment (MCP)(id: "<comment_id>")
 
-## Description
+### Description
 You will be assigned an issue with issue ID such as 'L-114'.
 You need to strictly follow the steps listed below. You may consider each step as a task.
 
-## Goal
+### Goal
 Complete the issue by:
 1. updating the Linear issue
 2. creating a dedicated git worktree and branch
@@ -32,7 +34,7 @@ Complete the issue by:
 5. opening a GitHub PR linked to the Linear issue
 6. relying on GitHub Actions for default validation unless the user explicitly requests local validation
 
-## Steps
+## Phase 1: Implementation
 ### Step 1: Read and understand the issue
 Before making changes:
 - Read the issue title, description, comments, and any linked context.
@@ -109,7 +111,8 @@ After the first line:
 - explicitly note that full validation is expected to run in GitHub Actions / CI,
 - mention any known limitations or follow-up work.
 
-## Step 8: Check GitHub Actions results only when explicitly requested
+## Phase 2: PR Follow-up
+### Step 8: Check GitHub Actions results only when explicitly requested
 Only perform this step when explicitly notified by the user.
 
 When asked to check PR status or validation results:
