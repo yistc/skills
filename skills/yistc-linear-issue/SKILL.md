@@ -139,7 +139,7 @@ Add a comment to the Linear issue containing:
   - whether validation is handled or completed by GitHub Actions / CI,
   - any remaining caveats.
 
-Comment-only. Do not modify Linear Issue Status.
+Linear Statue: change to 'In Review'
 
 ## Failure or blocker handling
 If you are blocked, add a Linear comment explaining:
