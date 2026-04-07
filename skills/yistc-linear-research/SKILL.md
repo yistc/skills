@@ -8,7 +8,7 @@ description: Workflow for researching a Linear issue, gathering all relevant con
 - Get Issue - get_issue (MCP)(id: "L-115")
 - List Comments - list_comments (MCP)(issueId: "L-115")
 - Create Comment: save_comment (MCP)(issueId: "L-115", body: "<comment body>")
-- Update commentt: save_comment (MCP)(id: "<comment_id>", issueId: "L-115", body: "<comment body>")
+- Update comment: save_comment (MCP)(id: "<comment_id>", issueId: "L-115", body: "<comment body>")
 - Delete comment: delete_comment (MCP)(id: "<comment_id>")
 
 ## Scope
@@ -20,10 +20,11 @@ Use this workflow when:
 Issue format example: L-114
 ## Goal
 Produce a high-quality research summary by:
-	1.	collecting all relevant context
-	2.	analyzing and organizing the information
-	3.	extracting key insights and open questions
-	4.	posting a structured summary to the Linear issue
+	1. collecting all relevant context
+	2. analyzing and organizing the information
+	3. extracting key insights and open questions
+	4. posting a structured summary to the Linear issue
+	5. creating a shared reference for the team to understand the issue and guide future work
 
 ## Steps
 ### Step 1: Read and collect context
@@ -83,7 +84,7 @@ The output must include:
 Rules:
 	•	Keep it concise but complete
 	•	Prefer bullet points over long paragraphs
-	•	Avoid speculation unless clearly labeled
+	•	Findings must distinguish between facts, inferences, and speculation
 
 ### Step 5: Post summary to Linear
 
@@ -95,6 +96,8 @@ Add a comment to the issue containing:
 The comment should:
 	•	help others quickly understand the issue
 	•	serve as a shared reference for future work
+
+If a prior research comment exists, update it instead of creating a new one
 
 ## Failure or ambiguity handling
 
