@@ -38,6 +38,7 @@ Complete the issue by:
 ### Step 1: Read and understand the issue
 Before making changes:
 - Read the issue title, description, comments, and any linked context.
+- If this issue is in a project, review the project description and all project ducoments.
 - Identify the expected outcome, constraints, and acceptance criteria.
 - If the issue is ambiguous, state the ambiguity clearly in a Linear comment before proceeding.
 - Do not start coding until the scope is understood well enough to produce a concrete plan.
