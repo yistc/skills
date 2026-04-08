@@ -92,6 +92,7 @@ Before opening a PR:
 
 ### Step 7: Commit and open a PR
 Create a commit and open a PR with GitHub CLI.
+For any code changes, you MUST create a RP without asking.
 
 PR requirements:
 - Push the branch to origin.
