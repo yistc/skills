@@ -34,7 +34,7 @@ Complete the issue by:
 5. opening a GitHub PR linked to the Linear issue
 6. relying on GitHub Actions for default validation unless the user explicitly requests local validation
 
-## Phase 1: Implementation
+## Phase 1: Implementation (Default Phase)
 ### Step 1: Read and understand the issue
 Before making changes:
 - Read the issue title, description, comments, and any linked context.
