@@ -8,6 +8,7 @@ description: Workflow for handling a Linear issue end-to-end. Uupdate Linear, cr
 Use this workflow only when you are explicitly assigned a Linear issue, with an issue ID like `L-114`.
 
 ## Guidelines
+- Language use: you should use Chinese in PR and issue comment and English in title and code.
 
 ### Behavioral rules
 - Do NOT change issue status unless explicitly required by a workflow step or requested by the user.
