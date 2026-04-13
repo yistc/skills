@@ -35,7 +35,7 @@ Complete the issue by:
 5. opening a GitHub PR linked to the Linear issue
 6. relying on GitHub Actions for default validation unless the user explicitly requests local validation
 
-## Phase 1: Implementation (Default Phase)
+## Steps
 ### Step 1: Read and understand the issue
 Before making changes:
 - Read the issue title, description, comments, and any linked context.
@@ -114,24 +114,12 @@ After the first line:
 - explicitly note that full validation is expected to run in GitHub Actions / CI,
 - mention any known limitations or follow-up work.
 
-## Phase 2: PR Follow-up
-### Step 8: Check GitHub Actions results only when explicitly requested
-Only perform this step when explicitly notified by the user.
+### Step 8: Check GitHub Actions results
+After creating the PR, the test workflow will run automatically. Wait for it to complete (typically under 3 minutes), then review the results.
 
-When asked to check PR status or validation results:
-	•	inspect the GitHub PR checks / GitHub Actions results,
-	•	summarize which checks passed, failed, or are still running,
-	•	if a check failed, identify the relevant error clearly,
-	•	make only the changes necessary to address the failure,
-	•	update the branch and push additional commits,
-	•	summarize what was fixed.
+If any checks fail, make only the minimal changes required to fix the issue, update the branch, and push new commits. Summarize what was fixed.
 
-Do not proactively wait for CI, poll for results, or repeatedly re-check the PR unless the user explicitly asks.
-
-- After making fixes and pushing updates, add a comment to the Linear issue summarizing:
-  - what failed,
-  - what was fixed,
-  - that CI has been re-run and is expected to validate the changes.
+Each new commit triggers another workflow run. Repeat this process until all tests pass.
 
 ### Step 9: Update Linear with PR and follow-up status
 After opening a PR OR after any significant PR update (e.g. CI failure fix, CI passing, PR ready):
@@ -144,26 +132,10 @@ Add a comment to the Linear issue containing:
 
 Linear Statue: change to 'In Review'
 
-## Failure or blocker handling
+# Failure or blocker handling
 If you are blocked, add a Linear comment explaining:
   - what blocked you
   - what you tried
   - what is needed to proceed
 
-  If you cannot complete the issue safely, do not pretend it is done
-
-## Cleanup
-Only perform cleanup when explicitly requested by the user
-
-Before performing cleanup:
-- Do NOT assume the PR is merged or CI has passed.
-- If PR status or CI results are relevant, only use information that has been explicitly checked or provided by the user.
-
-Cleanup may include:
-- removing the git worktree
-- deleting the local branch
-- posting a final Linear comment summarizing:
-  - the problem
-  - the plan
-  - the result
-  - the PR status or merge status
+If you cannot complete the issue safely, do not pretend it is done
