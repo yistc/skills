@@ -55,7 +55,7 @@ When starting work:
 ### Step 3: Create a git worktree and branch
 Create a dedicated worktree under:
 
-`~/Developer/worktrees/<repo>/<branch>`
+`~/dev/worktrees/<repo>/<branch>`
 
 Branch rules:
 - Base the branch on `dev`.
