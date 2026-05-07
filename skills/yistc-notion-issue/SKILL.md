@@ -1,6 +1,6 @@
 ---
 name: yistc-notion-issue
-description: Workflow for handling a Notion issue end-to-end. Uupdate Notion, create a git worktree from dev, implement the change, verify it, and open a GitHub PR linked to the issue.
+description: Workflow for handling a Notion issue end-to-end. Update Notion, create a git worktree from dev, implement the change, verify it, and open a GitHub PR linked to the issue.
 ---
 
 # Workflow for working on a Notion issue
@@ -20,7 +20,7 @@ Use this workflow only when you are explicitly assigned an issue, with an issue 
 - Always keep Notion updated with meaningful progress, especially after fixing CI failures or when the PR becomes ready to merge.
 
 ### Notion MCP References and Guidelines
-- 在 Page/Updates 区域添加新的 update toggle的时候, 遵循这个格式: "Update 2026-01-10: <update_summary>". 且新的update要放在最上面
+- 在 Notion Page的Updates 区域添加新的 update toggle的时候, 遵循这个格式: "Update 2026-01-10: <update_summary>". 且新的update要放在最上面
 
 ### Goal
 Complete the issue by:
@@ -42,7 +42,7 @@ Before making changes:
 
 ### Step 2: Update the Notion issue
 When starting work:
-- Change the issue status property to `In Progress`.
+- Change the issue status property to `In progress`.
 - Add a comment that:
   - you have started working on it,
   - you are creating a branch/worktree,
@@ -61,7 +61,7 @@ Branch rules:
 
 Example:
 
-`agent/L-114-fix-login-timeout`
+`agent/KIS-7-fix-login-timeout`
 
 Behavior:
 - If the branch does not exist, create it from `dev`.
@@ -89,7 +89,7 @@ Before opening a PR:
 
 ### Step 7: Commit and open a PR
 Create a commit and open a PR with GitHub CLI.
-For any code changes, you MUST create a RP without asking.
+For any code changes, you MUST create a PR without asking.
 
 PR requirements:
 - Push the branch to origin.
@@ -126,7 +126,7 @@ Add a comment to the Notion issue containing:
   - whether validation is handled or completed by GitHub Actions / CI,
   - any remaining caveats.
 
-Notion Statue: change to 'In Review'
+Notion Status: change to 'Reviewing'
 
 # Failure or blocker handling
 If you are blocked, add a Notion comment explaining:
