@@ -14,6 +14,7 @@ Use this workflow only when you are explicitly assigned an issue, with an issue 
 
 ## Notion MCP References and Guidelines
 - 在 Notion Page的Updates 区域添加新的 update toggle的时候, 遵循这个格式: "Update 2026-01-10: <update_summary>". 且新的update要放在最上面
+- 创建PR后 Notion Issue Page 的 Meta Data 中贴上 PR Link
 
 ## Goal
 Complete the issue by:
