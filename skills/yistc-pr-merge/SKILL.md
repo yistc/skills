@@ -1,6 +1,6 @@
 ---
 name: yistc-pr-merge
-description: 用户在 Notion Issue 流程中确认 PR 可以合并后，执行合并、本地同步和清理
+description: 用户确认 PR 合并，执行合并、本地同步和清理
 ---
 
 # PR Merge & Cleanup Workflow
